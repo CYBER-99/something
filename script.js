@@ -164,16 +164,20 @@ const steps = [
   },
 
   // 13 — Ending
-  {
-    html: `
-      <h1>Thank you.</h1>
-      <p>
-        For choosing me back then.<br>
-        And for choosing me again.
-      </p>
-      <div class="footer">Built for one heart only.</div>
-    `
+ {
+  html: `
+    <h1>Thank you.</h1>
+    <p>
+      For choosing me back then.<br>
+      And for choosing me again.
+    </p>
+    <div class="footer">Built for one heart only.</div>
+  `,
+  onLoad: () => {
+    setTimeout(showLovePopup, 3000);
   }
+}
+
 
 ];
 
@@ -199,3 +203,28 @@ function next() {
 }
 
 render();
+function showLovePopup() {
+  const popup = document.createElement("div");
+
+  popup.innerHTML = `I love you Hetal.`;
+
+  popup.style.position = "fixed";
+  popup.style.inset = "0";
+  popup.style.display = "flex";
+  popup.style.alignItems = "center";
+  popup.style.justifyContent = "center";
+  popup.style.background = "rgba(255, 230, 238, 0.85)";
+  popup.style.color = "#4a2b35";
+  popup.style.fontSize = "2rem";
+  popup.style.fontWeight = "500";
+  popup.style.opacity = "0";
+  popup.style.transition = "opacity 1.2s ease";
+  popup.style.zIndex = "999";
+
+  document.body.appendChild(popup);
+
+  requestAnimationFrame(() => {
+    popup.style.opacity = "1";
+  });
+}
+
