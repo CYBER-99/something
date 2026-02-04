@@ -3,15 +3,6 @@ const progress = document.getElementById("progress");
 
 let step = 0;
 
-/*
-  IMPORTANT:
-  This version uses:
-  - Longer text blocks
-  - Clear emotional progression
-  - Fewer buttons
-  - Very obvious wording changes
-*/
-
 const steps = [
 
   // 0 — Opening
@@ -19,7 +10,7 @@ const steps = [
     html: `
       <h1>Will you be my Valentine?</h1>
       <p>
-        I know this sounds simple…<br>
+        I know this might sound small…<br>
         especially when we’ve already been together for a year.
       </p>
       <button onclick="next()">Yes</button>
@@ -36,20 +27,16 @@ const steps = [
     }
   },
 
-  // 1 — Callback to old question
+  // 1 — Old question callback
   {
     html: `
-      <p>
-        Do you remember when I once asked you…
-      </p>
-      <h1>
-        “Do you really deserve this new me?”
-      </h1>
+      <p>Do you remember when I once asked you…</p>
+      <h1>“Do you really deserve this new me?”</h1>
       <button onclick="next()">I remember</button>
     `
   },
 
-  // 2 — Reveal
+  // 2 — Setup
   {
     html: `
       <p>
@@ -76,9 +63,10 @@ const steps = [
     html: `
       <h1>You deserved it.</h1>
       <p>
-        And honestly… you deserve even more.
+        And honestly…<br>
+        you deserve even more than that.
       </p>
-      <button onclick="next()">Still here</button>
+      <button onclick="next()"><><></button>
     `
   },
 
@@ -94,46 +82,45 @@ const steps = [
     `
   },
 
-  // 6 — Reason
+  // 6 — Reason (presence moment)
   {
     html: `
       <p>
         That’s because you’re the only one<br>
         who actually cares when I show how I feel.
       </p>
-      <button onclick="next()">Still here</button>
+      <button onclick="next()"><><></button>
     `
   },
 
-  // 7 — World vs her
+  // 7 — World vs loneliness
   {
     html: `
       <p>
         The world ignored my existence more times than I can count.<br>
-        And slowly… I stopped calling it my world.
+        Sometimes it felt like I didn’t exist at all.
       </p>
       <button onclick="next()">And then?</button>
     `
   },
 
-  // 8 — Core line (IMPORTANT)
+  // 8 — Core emotional line (presence)
   {
     html: `
-      <h1>
-        I think you became my world.
-      </h1>
+      <h1>I think you became my world.</h1>
       <p>
+        Because you stayed.<br>
         Because you cared.
       </p>
-      <button onclick="next()">…</button>
+      <button onclick="next()"><><></button>
     `
   },
 
-  // 9 — Online relationship truth
+  // 9 — Online relationship doubt
   {
     html: `
       <p>
-        People don’t believe online relationships last.<br>
+        People don’t really believe online relationships last.<br>
         Even I wasn’t sure at first.
       </p>
       <button onclick="next()">But now?</button>
@@ -145,21 +132,22 @@ const steps = [
     html: `
       <p>
         Love isn’t about being physically there.<br>
-        It’s about choosing each other.<br>
-        Every single day.
+        It’s about,<br>
+        connecting emotionally,<br>
+        and never giving up on each other.
       </p>
-      <button onclick="next()">I agree</button>
+      <button onclick="next()">I understand</button>
     `
   },
 
-  // 11 — Gratitude
+  // 11 — Gratitude (presence)
   {
     html: `
       <p>
         Thank you for choosing me<br>
         when I really needed someone.
       </p>
-      <button onclick="next()">…</button>
+      <button onclick="next()"><><></button>
     `
   },
 
@@ -168,7 +156,8 @@ const steps = [
     html: `
       <h1>So I’ll ask again.</h1>
       <p>
-        Will you be my Valentine?
+        Will you be my Valentine?<br>
+        Till our last breath?
       </p>
       <button onclick="next()">Yes</button>
     `
@@ -177,10 +166,10 @@ const steps = [
   // 13 — Ending
   {
     html: `
-      <h1>Till our last breath.</h1>
+      <h1>Thank you.</h1>
       <p>
-        Thank you for choosing me.<br>
-        Always.
+        For choosing me back then.<br>
+        And for choosing me again.
       </p>
       <div class="footer">Built for one heart only.</div>
     `
@@ -209,5 +198,4 @@ function next() {
   render();
 }
 
-// Initial render
 render();
