@@ -170,9 +170,6 @@ const steps = [
     <p>
       For choosing me back then.<br>
       And for choosing me again.
-      <br>
-      <br>
-      <h1>I Love You Hetal</h1>
     </p>
     <div class="footer">Built for one heart only.</div>
   `,
@@ -210,7 +207,7 @@ render();
 function showLovePopup() {
   const popup = document.createElement("div");
 
-  popup.innerHTML = `I love you Hetal.`;
+  popup.innerHTML = `I love you Hetal ♥ `;
 
   popup.style.position = "fixed";
   popup.style.inset = "0";
