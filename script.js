@@ -1,8 +1,8 @@
 const content = document.getElementById("content");
+const progress = document.getElementById("progress");
 let step = 0;
 
 const steps = [
-  // STEP 0
   {
     html: `
       <h1>Will you be my Valentine?</h1>
@@ -12,18 +12,16 @@ const steps = [
     onLoad: () => {
       const noBtn = document.getElementById("noBtn");
 
-      const moveBtn = () => {
+      const move = () => {
         noBtn.style.position = "relative";
-        noBtn.style.left = Math.random() * 100 - 50 + "px";
+        noBtn.style.left = Math.random() * 120 - 60 + "px";
         noBtn.style.top = Math.random() * 60 - 30 + "px";
       };
 
-      noBtn.addEventListener("mouseover", moveBtn);
-      noBtn.addEventListener("touchstart", moveBtn);
+      noBtn.addEventListener("mouseover", move);
+      noBtn.addEventListener("touchstart", move);
     }
   },
-
-  // STEP 1
   {
     html: `
       <h1>Are you sure?</h1>
@@ -32,8 +30,6 @@ const steps = [
       <button onclick="softContinue()">I need a second</button>
     `
   },
-
-  // STEP 2
   {
     html: `
       <p>I should tell you something.</p>
@@ -41,32 +37,24 @@ const steps = [
       <button onclick="next()">Okay</button>
     `
   },
-
-  // STEP 3
   {
     html: `
       <p>I replay conversations.</p>
       <button onclick="next()">Still here</button>
     `
   },
-
-  // STEP 4
   {
     html: `
       <p>I worry I said the wrong thing.</p>
       <button onclick="next()">Still here</button>
     `
   },
-
-  // STEP 5
   {
     html: `
       <p>I care deeply, even when it scares me.</p>
       <button onclick="next()">Still here</button>
     `
   },
-
-  // STEP 6
   {
     html: `
       <h1>Knowing all that…</h1>
@@ -74,21 +62,29 @@ const steps = [
       <button onclick="next()">Yes</button>
     `
   },
-
-  // FINAL STEP
   {
     html: `
       <p>
         [Write your personal message here.<br><br>
-        Be honest. Be specific. No jokes here.]
+        Keep it honest. Let it breathe.]
       </p>
       <div class="footer">Built for one player only.</div>
     `
   }
 ];
 
+function renderProgress() {
+  progress.innerHTML = "";
+  steps.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.className = "dot" + (i <= step ? " active" : "");
+    progress.appendChild(dot);
+  });
+}
+
 function render() {
   content.innerHTML = steps[step].html;
+  renderProgress();
   if (steps[step].onLoad) steps[step].onLoad();
 }
 
@@ -102,7 +98,7 @@ function softContinue() {
     <p>Take your time.</p>
     <p>I’ll still be here.</p>
   `;
-  setTimeout(next, 1500);
+  setTimeout(next, 1600);
 }
 
 render();
